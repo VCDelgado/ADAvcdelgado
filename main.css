@@ -7,43 +7,98 @@
     text-decoration: none;
     list-style: none;
 }
+
 body {
     font-family: 'Poppins', sans-serif;
-}
-
-.titulo {
-    padding-left: 20px;
-    color: white;
+    
 }
 
 .menu {
     background-color: rgb(74, 109, 109);
-    background-position: center; 
     display: flex;
-    align-items: center;
-    height: 20vh;
     justify-content: space-between;
+    height:10vh;
+    align-items: center;
 }
-
-.menu .navbar ul li {
-    display: flex;
-
-}  
-.menu .navbar ul li a {
-    color: white;
+.totalpersonajes h3 {
+    color: #434343;
     padding: 20px;
 }
-
-.menu .navbar ul li a:hover {
-    color: rgb(80, 78, 78);
+.titulo {
+    color: white;
+    padding-left: 30px;
+    font-size: larger;
+}
+.lista > li {
+    float:left;
+    
+}
+.lista li a {
+    color: white;
+    padding:10px 35px;
+    background-color: rgb(74, 109, 109); 
+    display:block;
+       
 }
 
-
-.sublista {
-    display: none;
-    position: absolute;
+.lista li a:hover {
+    color:#434343;
 }
- /* TODAS LAS IMAGENES SE HACEN RESPONSIVAS */
+
+.lista li ul {
+    display:none;
+    position:absolute;
+    min-width:140px;
+}
+
+.lista li:hover > ul {
+    display:block;
+}
+
+ /* TODAS LAS IMAGENES SE HACEN RESPONSIVAS 
 img {
     max-width: 100%;
+}*/
+
+.detalle {
+    font-style: italic;
+    font-weight: bold;
 }
+
+#cuadro {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 350px 350px 350px 350px;
+    grid-template-rows: 600px ;
+      
+}
+.cuadrodatos {
+    border: 3px solid #9b8677;
+    border-radius: 20px;
+    width: 350px;
+    height: 600px;
+}
+ 
+img {
+    width: 100%;
+    border-radius:  20px 20px 0px 0px;
+}
+
+p {
+    padding-left: 10px;
+    padding-top: 5px;
+}
+
+img:hover {
+    transition: 1s;
+    transform: rotateY(180deg);
+    filter: saturate(200%);
+    
+}
+
+.cuadrodatos:hover {
+    box-shadow: 16px 11px 15px #9b8677;
+    transition: 1s;
+   
+}
+
