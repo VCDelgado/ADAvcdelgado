@@ -15,21 +15,20 @@
                 <h2>Rick and Morty</h2>
             </a>
             <ul class="lista">
-                <li><a href="#">Todos</a></li>
+                <li id="todos"><a href="#">Todos</a></li>
                 <li><a href="#">Genero</a>
                     <ul class="sublista">
-                        <li><a href="#">Hombre</a></li>
-                        <li class="mujer"><a href="#" >Mujer</a></li>
-                        <li><a href="#">Sin genero</a></li>
-                        <li><a href="#">Desconocido</a></li>
-                        <li><a href="#">Desconocido</a></li>
+                        <li id="hombre"><a href="#">Hombre</a></li>
+                        <li id="mujer"><a href="#">Mujer</a></li>
+                        <li id="sinGenero"><a href="#">Sin genero</a></li>
+                        <li id="desconocido"><a href="#">Desconocido</a></li>
                     </ul>
                 </li>
             </ul>
         </div>
     </header>
     <div class="totalpersonajes">
-        <h3>Total de personajes</h3>
+        <h3>Total de personajes: <span id="totalPersonajes"></span></h3>
     </div>
     
         <div id="cuadro">
@@ -42,9 +41,15 @@
                 <p>Origen: </p>
                 <p>Locación: </p>
             </div>-->
+            
         </div> 
+        <div id="verMas"></div>
+        
         <div>
-            <button id="mujer">mujeres</button>
+            <p>Pagina Nº: <span id="numeroPagina"></span></p>
+            <p>Total de páginas: <span id="totalPaginas"></span></p>
+            </div> 
+        <div>            
             <button id="primerPagina"><<</button>
             <button id="anterior"><</button>
             <button id="siguiente">></button>
@@ -55,3 +60,5 @@
 </body>
 
 </html>
+
+<!-- $div.innerHTML = `<p> Pagina actual = ${pagina}</p>`;-->
