@@ -17,6 +17,7 @@ let $mujerB = document.getElementById("mujer");
 let $hombreB = document.getElementById("hombre");
 let $sinGeneroB = document.getElementById("sinGenero");
 let $desconocidoB = document.getElementById("desconocido");
+let $xxxB = document.getElementById("xxx");
 
 // FETCH
 function usarFetch (numeroPagina) {
@@ -31,6 +32,7 @@ function usarFetch (numeroPagina) {
     cuadro (resultados);
     $numeroPagina.innerHTML = numeroPagina;
     $totalPaginas.innerHTML = informacion.pages;
+    console.log (resultados);
     }
 )
 
@@ -57,20 +59,14 @@ function cuadro (resultados) {
                                 <p><span class="detalle"> Especies: </span> ${resultados[i].species}</p>
                                 <p><span class="detalle"> Estado: </span> ${resultados[i].status}</p>
                                 <p><span class="detalle"> Origen: </span> ${resultados[i].origin.name}</p>
-                                <p><span class="detalle"> Locación: </span> ${resultados[i].location.name}</p>
-                                <a href="#"> <span class="verMas">Ver mas...</span> ${resultados[i].id}</a> 
+                                <p><span class="detalle"> Locación: </span> ${resultados[i].location.name}</p> 
+                                <div id="xxx"><a href="#">Ver mas...</a></div>                        
                                 </div>`                                                            
     }
     }
 
 
-
-
-
-    
-
-
-// FILTROS POR GENERO
+    // FILTROS POR GENERO
 
 function filtrarTodos () {
     let todos = resultados;
@@ -113,32 +109,76 @@ $desconocidoB.addEventListener ("click",filtrarDesconocido);
 
 
 
+function filtrarxxx () {
+    let xxx = resultados.filter ((personaje) => {
+        return personaje.id === 1;
+    })
+    cuadro (xxx);
+}
+$xxxB.addEventListener ("click",filtrarxxx);
+
+
+
+
+
 // PAGINACION
 
 function primerPagina () {
     if (pagina > 1) {
-        pagina = 1;
-        usarFetch (1);
-    }    
+        pagina = 1;   
+        usarFetch (pagina);
+        $siguienteB.disabled = false;
+        $ultimaPaginaB.disabled = false;
+        $anteriorB.disabled = true;
+        $primerPaginaB.disabled = true;
+    } 
 };
 $primerPaginaB.addEventListener ("click",primerPagina);
 
 function siguientePagina () {
     pagina+=1;
+    if (pagina === 42) {
+        $siguienteB.disabled = true;
+        $ultimaPaginaB.disabled = true;
+        $anteriorB.disabled = false;
+        $primerPaginaB.disabled = false;
+    } else if (pagina < 42) {
+        $siguienteB.disabled = false;
+        $ultimaPaginaB.disabled = false;
+        $anteriorB.disabled = false;
+        $primerPaginaB.disabled = false;
+    }
     usarFetch (pagina)
 };
 $siguienteB.addEventListener ("click",siguientePagina);
 
 function anteriorPagina () {
     pagina-= 1;
+    if (pagina === 1) {
+        $siguienteB.disabled = false;
+        $ultimaPaginaB.disabled = false;
+        $anteriorB.disabled = true;
+        $primerPaginaB.disabled = true;
+    } else if (pagina > 1) {
+        $siguienteB.disabled = false;
+        $ultimaPaginaB.disabled = false;
+        $anteriorB.disabled = false;
+        $primerPaginaB.disabled = false;
+    }
     usarFetch (pagina)
 };
 $anteriorB.addEventListener ("click",anteriorPagina);
 
 function ultimaPagina () {
     if (pagina < informacion.pages) {
-        pagina = informacion.pages
+        pagina = informacion.pages;
         usarFetch (pagina);
+        $siguienteB.disabled = true;
+        $ultimaPaginaB.disabled = true;
+        $anteriorB.disabled = false;
+        $primerPaginaB.disabled = false;  
     }
+    
 };
 $ultimaPaginaB.addEventListener ("click",ultimaPagina);
+
