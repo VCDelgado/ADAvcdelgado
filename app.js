@@ -17,7 +17,7 @@ let $mujerB = document.getElementById("mujer");
 let $hombreB = document.getElementById("hombre");
 let $sinGeneroB = document.getElementById("sinGenero");
 let $desconocidoB = document.getElementById("desconocido");
-let $xxxB = document.getElementById("xxx");
+let $verMasB = document.getElementById("verMas");
 
 // FETCH
 function usarFetch (numeroPagina) {
@@ -109,13 +109,13 @@ $desconocidoB.addEventListener ("click",filtrarDesconocido);
 
 
 
-function filtrarxxx () {
-    let xxx = resultados.filter ((personaje) => {
+function filtrarVerMas () {
+    let verMas = resultados.filter ((personaje) => {
         return personaje.id === 1;
     })
-    cuadro (xxx);
+    cuadro (verMas);
 }
-$xxxB.addEventListener ("click",filtrarxxx);
+$verMasB.addEventListener ("click",filtrarVerMas);
 
 
 
