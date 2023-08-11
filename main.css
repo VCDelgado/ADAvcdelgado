@@ -40,7 +40,7 @@ body {
     padding:10px 35px;
     background-color: rgb(74, 109, 109); 
     display:block;
-    width: 20vh;
+    width: 22vh;
        
 }
 
@@ -188,11 +188,12 @@ footer {
    
 }
 
-@media (max-width: 600px) {
+@media (max-width: 620px) {
     .titulo {
     font-size:medium;
     text-align: center;
 }
+
 .menu {
     background-color: rgb(74, 109, 109);
     display: grid;
@@ -202,7 +203,8 @@ footer {
 }
 ul.lista  {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    width: 100%;
 }
 
 .mujeres {
@@ -225,23 +227,33 @@ ul.lista  {
  }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 1200px) {
 
     #cuadro {
         justify-content: center;
         display: grid;
         gap: 10px;
-        grid-template-columns: 350px;
-        
+        grid-template-columns: repeat(3, 1fr);
     }
-    .lista li a {
-      
-        width: 100%;
-           
-    }
+    
+}
 
-    body {
-        padding: 0px;
-        
-    }
+@media (max-width: 950px) {
+
+    #cuadro {
+        justify-content: center;
+        display: grid;
+        gap: 10px;
+        grid-template-columns: repeat(2, 1fr);
+    }    
+}
+
+@media (max-width: 450px) {
+
+    #cuadro {
+        justify-content: center;
+        display: grid;
+        gap: 10px;
+        grid-template-columns: 1fr;
+    }    
 }

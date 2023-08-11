@@ -18,6 +18,8 @@ let $hombreB = document.getElementById("hombre");
 let $sinGeneroB = document.getElementById("sinGenero");
 let $desconocidoB = document.getElementById("desconocido");
 let $verMasB = document.getElementById("verMas");
+let $eligePagB = document.getElementById("eligePag");
+
 
 // FETCH
 function usarFetch (numeroPagina) {
@@ -29,10 +31,14 @@ function usarFetch (numeroPagina) {
 .then ((data)=> {
     resultados = data.results;
     informacion = data.info;
+    caracter = data.results.name;
     cuadro (resultados);
     $numeroPagina.innerHTML = numeroPagina;
     $totalPaginas.innerHTML = informacion.pages;
+    filtroId = data.info.pages;
+    console.log (informacion);
     console.log (resultados);
+    console.log (caracter);
     }
 )
 
@@ -44,6 +50,12 @@ function usarFetch (numeroPagina) {
 usarFetch (pagina);
 
 $numeroPagina.innerHTML = `<p> Pagina actual = ${pagina}</p>`;
+
+
+    
+
+
+
 
 
 // TODOS LOS PERSONAJES
@@ -59,11 +71,18 @@ function cuadro (resultados) {
                                 <p><span class="detalle"> Especies: </span> ${resultados[i].species}</p>
                                 <p><span class="detalle"> Estado: </span> ${resultados[i].status}</p>
                                 <p><span class="detalle"> Origen: </span> ${resultados[i].origin.name}</p>
-                                <p><span class="detalle"> Locación: </span> ${resultados[i].location.name}</p> 
-                                <div id="xxx"><a href="#">Ver mas...</a></div>                        
+                                <p><span class="detalle"> Locación: </span> ${resultados[i].location.name}</p>
                                 </div>`                                                            
     }
     }
+
+
+
+
+
+
+
+
 
 
     // FILTROS POR GENERO
@@ -111,7 +130,7 @@ $desconocidoB.addEventListener ("click",filtrarDesconocido);
 
 function filtrarVerMas () {
     let verMas = resultados.filter ((personaje) => {
-        return personaje.id === 1;
+       return personaje.id === 2;
     })
     cuadro (verMas);
 }
@@ -181,4 +200,3 @@ function ultimaPagina () {
     
 };
 $ultimaPaginaB.addEventListener ("click",ultimaPagina);
-
