@@ -63,6 +63,7 @@ body {
 .detalle {
     font-style: italic;
     font-weight: bold;
+    padding-left: 10px;
 }
 
 #cuadro {
@@ -78,6 +79,7 @@ body {
     border-radius: 22px;
     height: 100%;
     width: 100%;
+    padding-bottom: 20px;
 }
  
 img {
@@ -111,7 +113,7 @@ img:hover {
     justify-content: center;
     flex-direction: column;
     align-items:center;
-    height:10vh;
+    height:15vh;
    color: rgb(74, 109, 109);
    font-weight: bolder;
     
@@ -121,14 +123,14 @@ img:hover {
     display: flex;
     justify-content: center;
     align-items:center;
-    height:10vh;
+    height:8vh;
     gap: 10px;
 }
 
 .boton { 
     position: relative;
-    width: 15vh;
-    height: 5vh;
+    width: 10vh;
+    height: 4vh;
     font-size: 15px;
     font-weight: bold;
     border-radius: 10px;
@@ -187,6 +189,24 @@ footer {
     align-items: center;
    
 }
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button 
+{
+    -webkit-appearance: none;
+    margin: 0;
+    }
+
+.eligePag {
+    width: 5vh;
+    height: 4vh;
+    border: 2px solid rgb(74, 109, 109);
+    border-radius: 10px;
+    text-align: center;
+    color: rgb(74, 109, 109);
+    font-weight: bold;
+}
+
 
 @media (max-width: 620px) {
     .titulo {

@@ -31,25 +31,20 @@
         <h3>Total de personajes: <span id="totalPersonajes"></span></h3>
     </div>
     <div id="cuadro">
-        <!-- <div class="cuadrodatos">
-                <img src="" alt="">
-                <p>Nombre: </p>
-                <p>Género: </p>
-                <p>Especies: </p>
-                <p>Estado: </p>
-                <p>Origen: </p>
-                <p>Locación: </p>
-            </div>-->
+        
     </div>
-    <div id="verMas"><a href="#">Ver mas...</a></div>
+
 
     <div class="paginado">
         <p>Pagina Nº: <span id="numeroPagina"></span></p>
         <p>Total de páginas: <span id="totalPaginas"></span></p>
-        <ul class="paginado">
-            <li id="idPaginado"><a href="#">paginado:</a></li>
-        </ul>
-        </li>
+        <p>Elige una pagina: <span>
+            <input type="number" placeholder="Nº..." id="numPag" class="eligePag">
+                <button onclick="eligePag ()" class="boton">Buscar </button>
+            </span>
+        </p>
+
+
     </div>
     </div>
     <div class="botones">
@@ -57,6 +52,7 @@
         <button disabled id="anterior" class="boton">Anterior</button>
         <button id="siguiente" class="boton">Siguiente</button>
         <button id="ultimaPagina" class="boton">Ultima</button>
+
     </div>
 
     <script src="./app.js"></script>

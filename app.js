@@ -1,7 +1,8 @@
 let $totalPersonajes = document.getElementById ("totalPersonajes")
 let $cuadro = document.getElementById ("cuadro")
 let todosPersonajes = [];
-let $verMas = document.getElementById ("verMas")
+
+let $numPag = document.getElementById ("numPag")
 
 let pagina = 1;
 
@@ -18,7 +19,7 @@ let $hombreB = document.getElementById("hombre");
 let $sinGeneroB = document.getElementById("sinGenero");
 let $desconocidoB = document.getElementById("desconocido");
 let $verMasB = document.getElementById("verMas");
-let $eligePagB = document.getElementById("eligePag");
+
 
 
 // FETCH
@@ -35,11 +36,8 @@ function usarFetch (numeroPagina) {
     cuadro (resultados);
     $numeroPagina.innerHTML = numeroPagina;
     $totalPaginas.innerHTML = informacion.pages;
-    filtroId = data.info.pages;
-    console.log (informacion);
-    console.log (resultados);
-    console.log (caracter);
-    }
+    
+}
 )
 
 .catch ((error) => {
@@ -53,11 +51,6 @@ $numeroPagina.innerHTML = `<p> Pagina actual = ${pagina}</p>`;
 
 
     
-
-
-
-
-
 // TODOS LOS PERSONAJES
 
 function cuadro (resultados) {
@@ -72,20 +65,20 @@ function cuadro (resultados) {
                                 <p><span class="detalle"> Estado: </span> ${resultados[i].status}</p>
                                 <p><span class="detalle"> Origen: </span> ${resultados[i].origin.name}</p>
                                 <p><span class="detalle"> Locación: </span> ${resultados[i].location.name}</p>
-                                </div>`                                                            
+                                </div>`                                                        
     }
     }
 
+function eligePag () {
+    usarFetch ($numPag.value);
+    
+    
+}
 
 
 
 
-
-
-
-
-
-    // FILTROS POR GENERO
+// FILTROS POR GENERO
 
 function filtrarTodos () {
     let todos = resultados;
@@ -128,17 +121,6 @@ $desconocidoB.addEventListener ("click",filtrarDesconocido);
 
 
 
-function filtrarVerMas () {
-    let verMas = resultados.filter ((personaje) => {
-       return personaje.id === 2;
-    })
-    cuadro (verMas);
-}
-$verMasB.addEventListener ("click",filtrarVerMas);
-
-
-
-
 
 // PAGINACION
 
@@ -150,12 +132,13 @@ function primerPagina () {
         $ultimaPaginaB.disabled = false;
         $anteriorB.disabled = true;
         $primerPaginaB.disabled = true;
+        $eligePag= 1;
     } 
 };
 $primerPaginaB.addEventListener ("click",primerPagina);
 
 function siguientePagina () {
-    pagina+=1;
+    pagina +=1;
     if (pagina === 42) {
         $siguienteB.disabled = true;
         $ultimaPaginaB.disabled = true;
