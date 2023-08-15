@@ -276,4 +276,9 @@ ul.lista  {
         gap: 10px;
         grid-template-columns: 1fr;
     }    
+
+    .boton {
+        font-size: small;
+        color: black;
+    }
 }
